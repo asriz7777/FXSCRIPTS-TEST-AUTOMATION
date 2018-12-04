@@ -1,0 +1,26 @@
+name: account_Params_Negative
+
+authors:
+  - Mohammed Shoukath Ali
+
+type: SUITE
+
+endpoint: /accounts?page=-1&pageSize=10
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+
+severity: Minor
+
+category: Negative
+
+tags:
+    - V2
+
+policies:
+    logger: DEBUG

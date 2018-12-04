@@ -1,0 +1,27 @@
+name: account_findByAccountType_4
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /accounts/account-type/BOT_HUB
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data != EMPTY"
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
+
+policies:
+    logger: DEBUG

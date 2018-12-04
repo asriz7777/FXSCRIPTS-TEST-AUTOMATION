@@ -1,0 +1,37 @@
+name: create_selfhostedacc_abstract
+
+authors:
+  - Intesar Shannan Mohammed
+  - Asiya Shaji
+
+type: ABSTRACT
+
+endpoint: /accounts
+
+method: POST
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  - id: 1
+    body:
+      '{
+        "name": "selfhosted-{{@Random | 6}}",
+        "accountType": "Self_Hosted"
+      }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.accountType == @Request.accountType"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

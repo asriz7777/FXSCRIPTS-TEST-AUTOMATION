@@ -1,0 +1,52 @@
+name: account_update
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_GitHubacc_abstract
+
+endpoint: /accounts/{{@create_GitHubacc_abstract_Response.data.id}}
+
+method: PUT
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+   - id: 1
+     body:
+       '{
+        "id": "{{@create_GitHubacc_abstract_Response.data.id}}",
+        "org": {
+          "id": "{{@create_GitHubacc_abstract_Response.data.org.id}}"
+        },
+        "name": "{{@Random | 3}}",
+        "accountType": "GitHub",
+        "accessKey": "asriz7777",
+        "secretKey": "testing"
+      }'
+
+assertions:
+    - "@StatusCode == 200"
+    - "@Response.errors == false"
+    - "@Response.data.name == @Request.name"
+    - "@Response.data.accountType == @Request.accountType"
+    - "@Response.data.accessKey == @Request.accessKey"
+    - "@Response.data.secretKey == EMPTY"
+  #  - "@Response.data.account.id == @Request.account.id"
+    #- "@Response.data.org.id == @Request.org.id"
+
+cleanup:
+   - delete_GitHubacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

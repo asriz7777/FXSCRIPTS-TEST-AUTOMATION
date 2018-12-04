@@ -1,0 +1,25 @@
+name: account_delete_GitHub_invalid_auth
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /accounts/{{@create_GitHubacc_abstract_Response.data.id}}
+
+method: DELETE
+
+auth: None
+
+headers:
+- 'Content-Type: application/json'
+
+assertions:
+- "@StatusCode == 401"
+
+severity: Major
+
+category: UnSecured
+
+tags:
+- V2
