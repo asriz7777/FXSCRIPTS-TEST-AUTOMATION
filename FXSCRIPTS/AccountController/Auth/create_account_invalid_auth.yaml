@@ -109,6 +109,9 @@ testCases:
 assertions:
 - "@StatusCode == 401"
 
+cleanup:
+- delete_account
+
 category: UnSecured
 
 severity: Major

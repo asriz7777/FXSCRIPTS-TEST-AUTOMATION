@@ -20,7 +20,9 @@ testCases:
     body:
       '{
         "name": "selfhosted-{{@Random | 6}}",
-        "accountType": "Self_Hosted"
+        "accountType": "Self_Hosted",
+        "accessKey": "testing accessKey",
+        "secretKey": "testing secretKey"
       }'
 
 assertions:
@@ -28,6 +30,8 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
   - "@Response.data.accountType == @Request.accountType"
+  - "@Response.data.accessKey == @Request.accessKey"
+  - "@Response.data.secretKey != @Request.secretKey"
 
 severity: Major
 
