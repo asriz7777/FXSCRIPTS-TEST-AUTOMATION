@@ -71,7 +71,7 @@ assertions:
   - "@Response.data.prop2 == @Request.prop2"
 
 cleanup:
-  - delete_AZUREacc_abstract
+  - delete_account
 
 severity: Major
 

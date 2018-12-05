@@ -49,7 +49,7 @@ assertions:
   - "@Response.data.secretKey != @Request.secretKey"
 
 cleanup:
-  - delete_slackacc_abstract
+  - delete_account
 
 severity: Major
 

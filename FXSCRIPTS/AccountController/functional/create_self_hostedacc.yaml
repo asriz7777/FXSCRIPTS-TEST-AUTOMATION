@@ -44,7 +44,7 @@ assertions:
   - "@Response.data.accountType == @Request.accountType"
 
 cleanup:
-  - delete_self_hostedacc_abstract
+  - delete_account
 
 severity: Major
 

@@ -53,7 +53,7 @@ assertions:
   - "@Response.data.secretKey == EMPTY"
 
 cleanup:
-  - delete_GitHubacc_abstract
+  - delete_account
 
 severity: Major
 

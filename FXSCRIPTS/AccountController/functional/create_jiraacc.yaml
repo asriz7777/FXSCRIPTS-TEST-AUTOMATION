@@ -54,7 +54,8 @@ assertions:
   - "@Response.data.secretKey != @Request.secretKey"
 
 cleanup:
-  - delete_jiraacc_abstract
+  - delete_account
+  
 severity: Major
 
 category: Functional

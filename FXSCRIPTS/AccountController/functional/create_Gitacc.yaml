@@ -54,7 +54,7 @@ assertions:
   - "@Response.data.secretKey == EMPTY"
 
 cleanup:
-  - delete_Gitacc_abstract
+  - delete_account
 
 severity: Major
 

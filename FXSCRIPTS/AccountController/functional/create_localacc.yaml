@@ -44,7 +44,7 @@ assertions:
   - "@Response.data.accountType == @Request.accountType"
 
 cleanup:
-  - delete_Localacc_abstract
+  - delete_account
 
 severity: Major
 

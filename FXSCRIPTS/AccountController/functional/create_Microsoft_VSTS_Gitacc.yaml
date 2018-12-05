@@ -54,7 +54,7 @@ assertions:
   - "@Response.data.secretKey != @Request.secretKey"
 
 cleanup:
-  - delete_Microsoft_VSTS_Gitacc_abstract
+  - delete_account
 
 severity: Major
 
