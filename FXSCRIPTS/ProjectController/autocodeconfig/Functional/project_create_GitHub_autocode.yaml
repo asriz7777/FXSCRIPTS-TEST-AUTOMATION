@@ -1,0 +1,45 @@
+name: create_project_GitHub_autoCode
+
+authors:
+  - Asiya
+
+type: SUITE
+
+init:
+ - create_GitHubacc_abstract
+ - create_project_GitHub_abstract
+ - project_getCodeConfigSave_abstract
+
+endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/autocodeconfig
+
+method: POST
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  - id: 1
+    body: '{
+        "generators": "{{@project_getCodeConfigSave_Response.data.generators}}",
+        "project": "{{@create_project_GitHub_abstract_Response.data}}",
+        "openAPISpec": "http://13.56.210.25/v2/api-docs"
+      }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+  - "@Response.data.generators == @Request.generators"
+  - "@Response.data.project.id == @Request.project.id"
+  - "@Response.data.openAPISpec == @Request.openAPISpec"
+
+cleanup:
+  - delete_project
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

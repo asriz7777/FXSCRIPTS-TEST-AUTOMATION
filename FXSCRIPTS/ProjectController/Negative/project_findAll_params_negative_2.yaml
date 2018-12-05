@@ -1,0 +1,26 @@
+name: project_findAll_params_negative_2
+
+authors:
+  - Intesar Shannan Mohammed
+
+type: SUITE
+
+endpoint:  /projects?page=0&pageSize=-10
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+
+severity: Minor
+
+category: Negative
+
+tags:
+    - V2
+
+policies:
+    logger: DEBUG

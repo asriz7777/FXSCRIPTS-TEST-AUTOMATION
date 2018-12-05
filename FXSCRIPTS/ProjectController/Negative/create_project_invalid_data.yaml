@@ -1,0 +1,84 @@
+name: create_project_invalid_data
+
+authors:
+  - Intesar Shannan Mohammed
+
+type: SUITE
+
+endpoint: /projects
+
+method: POST
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  # invalid name
+  - id: 1
+    body: '{
+        "name": "",
+        "description": "SD-Test example"
+     }'
+  - id: 2
+    body: '{
+        "name": " ",
+        "description": "SD-Test example"
+     }'
+  # invalid url
+  - id: 3
+    body: '{
+        "name": "test",
+        "url": "",
+        "description": "SD-Test example"
+     }'
+  - id: 4
+    body: '{
+        "name": "test",
+        "url": " ",
+        "description": "SD-Test example"
+     }'
+  # invalid account
+  - id: 6
+    body: '{
+        "name": "Test-{{@Random | 6}}",
+        "url": "https://github.com/intesar/Fx-Test-Data.git",
+        "description": "SD-Test example",
+        "account": {}
+     }'
+  - id: 7
+    body: '{
+        "name": "Test-{{@Random | 6}}",
+        "url": "https://github.com/intesar/Fx-Test-Data.git",
+        "description": "SD-Test example",
+        "account": {"id": ""}
+     }'
+  - id: 8
+    body: '{
+        "name": "Test-{{@Random | 6}}",
+        "url": "https://github.com/intesar/Fx-Test-Data.git",
+        "description": "SD-Test example",
+        "account": {"id": " "}
+     }'
+  - id: 9
+    body: '{
+        "name": "Test-{{@Random | 6}}",
+        "url": "https://github.com/intesar/Fx-Test-Data.git",
+        "description": "SD-Test example",
+        "account": {"id": "123"}
+     }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+
+severity: Minor
+
+category: Negative
+
+tags:
+- V2
+
+policies:
+  logger: DEBUG

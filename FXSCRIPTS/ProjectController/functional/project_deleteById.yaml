@@ -1,0 +1,31 @@
+name: project_deleteById
+
+authors:
+  - Asiya
+
+type: SUITE
+
+init:
+ - create_GitHubacc_abstract
+ - create_project_GitHub_abstract
+
+endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}
+
+method: DELETE
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.id == @Request.id"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

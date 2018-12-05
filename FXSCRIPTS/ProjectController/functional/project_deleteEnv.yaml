@@ -1,0 +1,35 @@
+#delete
+name: project_deleteEnv
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_GitHubacc_abstract
+  - create_project_GitHub_abstract
+  - create_environment_abstract
+  - job_findby_projectid_abstract
+  - delete_job__findby_projectid_abstract
+
+endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/env/{{@create_environment_abstract_Response.data.id}}
+
+method: DELETE
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+assertions:
+    - "@StatusCode == 200"
+    - "@Response.errors == false"
+
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
