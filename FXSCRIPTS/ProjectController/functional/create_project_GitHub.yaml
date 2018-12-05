@@ -25,7 +25,6 @@ testCases:
         "account": "{{@create_GitHubacc_abstract_Response.data}}"
       }'
 
-
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
