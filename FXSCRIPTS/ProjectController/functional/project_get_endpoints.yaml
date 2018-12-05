@@ -1,4 +1,4 @@
-name: project_findAll_endpoints
+name: project_get_endpoints
 
 authors:
   - Asiya Shaji
@@ -9,7 +9,7 @@ init:
   - create_GitHubacc_abstract
   - create_project_GitHub_abstract
 
-endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}/endpoints
+endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/endpoints
 
 method: GET
 
