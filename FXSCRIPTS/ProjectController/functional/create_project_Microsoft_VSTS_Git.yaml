@@ -57,6 +57,7 @@ assertions:
 
 cleanup:
   - delete_project
+  - delete_Microsoft_VSTS_Gitacc_abstract
 
 severity: Major
 

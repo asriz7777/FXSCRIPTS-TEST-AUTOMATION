@@ -29,9 +29,10 @@ assertions:
   - "@Response.data.projecct.id == @Request.project.id"
 
 cleanup:
-   -
    - delete_job__findby_projectid_abstract
    - delete_environment
+   - delete_project_GitHub_abstract
+   - delete_GitHubacc_abstract
 
 severity: Major
 

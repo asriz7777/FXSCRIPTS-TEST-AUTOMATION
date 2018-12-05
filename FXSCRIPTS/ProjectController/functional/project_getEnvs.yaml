@@ -9,7 +9,7 @@ init:
    - create_GitHubacc_abstract
    - create_project_GitHub_abstract
    - create_environment_abstract
-   
+
 endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/env
 
 method: GET
@@ -21,9 +21,9 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data != EMPTY"
 
-#cleanup:
-    #- delete_project
-    #- delete_githubacc
+cleanup:
+  - delete_project_GitHub_abstract
+  - delete_GitHubacc_abstract
 
 severity: Major
 

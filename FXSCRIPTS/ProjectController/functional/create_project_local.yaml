@@ -55,9 +55,9 @@ assertions:
   - "@Response.data.url == @Request.url"
   - "@Response.data.account.id == @Request.account.id"
 
-
 cleanup:
   - delete_project
+  - delete_Localacc_abstract
 
 severity: Major
 

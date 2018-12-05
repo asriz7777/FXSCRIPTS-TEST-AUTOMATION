@@ -73,6 +73,9 @@ assertions:
   - "@StatusCode == 200"
   - "@Response.errors == true"
 
+cleanup:
+  - delete_project
+
 severity: Minor
 
 category: Negative

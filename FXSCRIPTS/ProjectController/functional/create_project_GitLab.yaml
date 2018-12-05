@@ -53,7 +53,8 @@ assertions:
 
 cleanup:
   - delete_project
-
+  - delete_GitLabacc_abstract
+  
 severity: Major
 
 category: Functional
