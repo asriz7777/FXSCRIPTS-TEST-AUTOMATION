@@ -9,7 +9,8 @@ init:
   - create_GitHubacc_abstract
   - create_project_GitHub_abstract
   - create_environment_abstract
-
+  - job_findby_projectid
+  
 endpoint: /jobs
 
 method: POST
@@ -34,6 +35,7 @@ assertions:
   - "@Response.data.project.id == @Request.project.id"
 
 cleanup:
+ - delete_job
  - delete_job__findby_projectid_abstract
  - delete_environment_abstract
  - delete_project_GitHub_abstract

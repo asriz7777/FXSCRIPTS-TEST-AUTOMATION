@@ -1,4 +1,4 @@
-name: projects_findByProjectName
+name: projects_get_resourceDefinitions
 
 authors:
   - Asiya Shaji
@@ -6,10 +6,10 @@ authors:
 type: SUITE
 
 init:
-   - create_GitHubacc_abstract
-   - create_project_GitHub_abstract
+  - create_GitHubacc_abstract
+  - create_project_GitHub_abstract
 
-endpoint: /projects/find-by-name/{{@create_project_GitHub_abstract_Response.data.name}}
+endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}/resource-definitions
 
 method: GET
 
@@ -18,7 +18,6 @@ auth: Default
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
-  - "@Response.data.name == @Request.name"
 
 cleanup:
   - delete_project_GitHub_abstract
