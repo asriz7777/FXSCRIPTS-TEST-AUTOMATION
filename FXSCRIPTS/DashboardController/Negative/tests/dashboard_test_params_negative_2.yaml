@@ -1,0 +1,24 @@
+name: dashboard_test_params_negative_2
+
+authors:
+  - Intesar Shannan Mohammed
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-runs?page=0&pageSize=-10
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2

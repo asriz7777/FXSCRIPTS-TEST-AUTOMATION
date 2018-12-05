@@ -1,0 +1,26 @@
+name: job_findAll_Params_Negative_3
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /jobs?page=-1&pageSize=10
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+
+severity: Minor
+
+category: Negative
+
+tags:
+    - V2
+
+policies:
+    logger: DEBUG

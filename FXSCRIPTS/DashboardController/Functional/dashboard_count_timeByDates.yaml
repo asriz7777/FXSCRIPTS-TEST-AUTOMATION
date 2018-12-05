@@ -1,0 +1,23 @@
+name: dashboard_timeByDates
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-time?fromDate=2018-11-01&toDate=2018-11-20
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2

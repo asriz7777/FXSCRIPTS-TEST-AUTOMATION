@@ -1,0 +1,24 @@
+name: dashboard_projects_findAll
+
+authors:
+  - Intesar Shannan Mohammed
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-projects
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2

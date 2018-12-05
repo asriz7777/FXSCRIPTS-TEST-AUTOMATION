@@ -1,0 +1,31 @@
+name: dashboard_getProjectSavings
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_GitHubacc_abstract
+  - create_project_GitHub_abstract
+
+endpoint: /dashboard/projects/{{@create_project_GitHub_abstract_Response.data.id}}/savings
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+  cleanup:
+  - delete_project_GitHub_abstract
+  - delete_GitHubacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2

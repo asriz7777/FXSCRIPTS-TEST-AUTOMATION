@@ -1,0 +1,27 @@
+name: dashboard_channels_invalid_auth
+
+authors:
+  - Intesar Shannan Mohammed
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-channels
+
+method: GET
+
+auth: None
+
+severity: Critical
+
+category: UnSecured
+# Auth required for this endpoint.
+
+assertions:
+  - "@StatusCode == 401"
+
+tags:
+  - V2
+
+policies:
+  logger: DEBUG

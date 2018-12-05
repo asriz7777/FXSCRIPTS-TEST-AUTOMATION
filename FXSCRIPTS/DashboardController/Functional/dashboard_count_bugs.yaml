@@ -1,0 +1,23 @@
+name: dashboard_count_bugs
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-bugs?page=0&pageSize=100
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2

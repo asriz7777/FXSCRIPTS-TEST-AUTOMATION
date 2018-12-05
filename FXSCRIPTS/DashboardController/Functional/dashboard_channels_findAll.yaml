@@ -1,0 +1,24 @@
+name: dashboard_channels_findAll
+
+authors:
+  - Intesar Shannan Mohammed
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-channels
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2

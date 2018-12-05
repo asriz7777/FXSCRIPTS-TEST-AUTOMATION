@@ -1,0 +1,24 @@
+name: dashboard_time_params_negative_1
+
+authors:
+  - Intesar Shannan Mohammed
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /dashboard/count-time?page=-1&pageSize=10
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == true"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2
