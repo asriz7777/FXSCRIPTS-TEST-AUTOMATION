@@ -24,7 +24,11 @@ testCases:
     body: '{
         "generators": "{{@project_getCodeConfigSave_Response.data.generators}}",
         "project": "{{@create_project_GitHub_abstract_Response.data}}",
-        "openAPISpec": "http://13.56.210.25/v2/api-docs"
+        "openAPISpec": "http://13.56.210.25/v2/api-docs",
+        "org": {
+          "id": "{{@create_GitHubacc_abstract_Response.data.org.id}}"
+        },
+
       }'
 
 assertions:
