@@ -21,8 +21,8 @@ headers:
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
-  - "@Response.data.id == @Request.id"
-
+  - "@Response.data.projecct.id == @Request.project.id"
+  
 cleanup:
 - delete_GitHubacc_abstract
 
