@@ -22,21 +22,21 @@ headers:
 testCases:
   - id: 1
     body: '{
-        "generators": "{{@project_getCodeConfigSave_abstract_Response.data.generators}}",
-        "project": "{{@create_project_GitHub_abstract_Response.data}}",
-        "openAPISpec": "http://13.56.210.25/v2/api-docs",
         "org": {
-          "id": "{{@create_project_GitHub_abstract_Response.data.org.id}}"
+        "id": "{{@create_project_GitHub_abstract_Response.data.org.id}}"
         },
-
-      }'
+       "project": "{{@create_project_GitHub_abstract_Response.data}}",
+       "openAPISpec": "http://13.56.210.25/v2/api-docs",
+       "generators": "{{@project_getCodeConfigSave_abstract_Response.data.generators}}"
+    }'
 
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == true"
-  - "@Response.data.generators == @Request.generators"
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.openAPISpec == @Request.openAPISpec"
+  - "@Response.data.generators == @Request.generators"
+
 
 cleanup:
   - delete_project_GitHub_abstract
