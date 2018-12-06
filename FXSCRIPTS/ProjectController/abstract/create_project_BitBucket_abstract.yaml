@@ -35,9 +35,6 @@ assertions:
   - "@Response.data.account.id == @Request.account.id"
 
 
-cleanup:
-  - delete_project
-
 severity: Major
 
 category: Functional

@@ -22,7 +22,7 @@ testCases:
       body: '{
         "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}",
         "environmentId": "{{@create_environment_abstract_Response.data.id}}",
-        "jobId": "{{@create_job_abstract_Response.data.id}}",
+        "jobId": "{{@job_findby_projectid_abstract_Response.data.id}}",
         "name": "UAT1",
         "regions": "US_WEST_2",
         "categories": ""
