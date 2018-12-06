@@ -42,8 +42,6 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
   - "@Response.data.accountType == @Request.accountType"
-  - "@Response.data.accessKey == @Request.accessKey"
-  - "@Response.data.secretKey != @Request.secretKey"
 
 cleanup:
   - delete_account
