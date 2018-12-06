@@ -1,4 +1,4 @@
-name: job_findby_id
+name: job_findby_jobid
 
 authors:
   - Asiya Shaji
@@ -6,7 +6,7 @@ authors:
 type: SUITE
 
 init:
-   - create_GitHubacc_abstractgithubacc_abstract
+   - create_GitHubacc_abstract
    - create_project_GitHub_abstract
    - create_environment_abstract
    - create_job_abstract
@@ -23,10 +23,9 @@ assertions:
   - "@Response.data != EMPTY"
 
 #cleanup:
-    #- delete_job
-    #- delete_environment
-    #- delete_project
-    #- delete_githubacc
+#  - delete_environment_abstract
+  #- delete_project_GitHub_abstract
+#  - delete_GitHubacc_abstract
 
 severity: Major
 
