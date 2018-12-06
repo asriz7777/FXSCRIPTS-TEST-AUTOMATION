@@ -11,7 +11,7 @@ init:
   - create_project_GitHub_abstract
   - create_environment_abstract
   - job_findby_projectid_abstract
-  - delete_job__findby_projectid_abstract
+  - delete_job_findby_projectid_abstract
 
 endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/env/{{@create_environment_abstract_Response.data.id}}
 

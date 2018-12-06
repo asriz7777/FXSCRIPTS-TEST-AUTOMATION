@@ -9,7 +9,7 @@ init:
    - create_GitHubacc_abstract
    - create_project_GitHub_abstract
    - create_environment_abstract
-   
+
 endpoint: /jobs/project-id/{{@create_project_GitHub_abstract_Response.data.id}}
 
 method: GET
@@ -22,7 +22,7 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
-  - delete_job__findby_projectid_abstract
+  - delete_job_findby_projectid_abstract
   - delete_environment
   - delete_project_GitHub_abstract
   - delete_GitHubacc_abstract
