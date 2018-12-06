@@ -1,0 +1,50 @@
+name: environment_update
+
+type: SUITE
+
+init:
+ - create_GitHubacc_abstract
+ - create_project_GitHub_abstract
+ - create_environment_abstract
+
+endpoint: /envs
+
+method: POST
+
+auth: Default
+
+testCases:
+    - id: 1
+      body:
+        '{
+        "id": "{{@create_environment_abstract_Response.data.id}}",
+        "org": {
+          "id": "{{@create_project_GitHub_abstract_Response.data.org.id}}"
+        },
+      "auths":[{"authType": "Basic","name": "Default",
+      "password": "asiya@fxlabs.io","username": "Asiya//Asiya@fxlabs.io"}],
+      "name": "UAT12","baseUrl": "http://13.56.210.25/api/v1",
+      "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}"
+      }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.authType == @Request.authType"
+  - "@Response.data.username == @Request.username"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.url == @Request.url"
+  - "@Response.data.projecct.id == @Request.project.id"
+
+cleanup:
+  - job_findby_projectid_abstract
+  - delete_job_findby_projectid_abstract
+  - delete_project_GitHub_abstract
+  - delete_GitHubacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
