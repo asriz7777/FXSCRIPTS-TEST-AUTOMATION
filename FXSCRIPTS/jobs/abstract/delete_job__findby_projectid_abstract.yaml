@@ -18,7 +18,6 @@ assertions:
     - "@StatusCode == 200"
     - "@Response.errors == false"
 
-
 severity: Major
 
 category: Functional

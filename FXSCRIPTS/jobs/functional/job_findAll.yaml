@@ -5,11 +5,6 @@ authors:
 
 type: SUITE
 
-#init:
-   # - create_githubacc_abstract
-  # - create_githubproj_abstract
-  # - create_environment_abstract
-  # - create_job_abstract
 endpoint: /jobs
 
 method: GET
@@ -19,9 +14,6 @@ auth: Default
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
-
-#cleanup:
-  #  - delete_job
 
 severity: Major
 

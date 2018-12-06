@@ -58,6 +58,8 @@ assertions:
 
 cleanup:
   - delete_project
+  - delete_BitBucketacc_abstract
+
 
 severity: Major
 
