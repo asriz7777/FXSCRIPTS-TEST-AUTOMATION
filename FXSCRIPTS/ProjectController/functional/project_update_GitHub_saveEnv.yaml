@@ -9,6 +9,7 @@ init:
  - create_GitHubacc_abstract
  - create_project_GitHub_abstract
  - create_environment_abstract
+ - job_findby_projectid_abstract
 
 endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/env/{{@create_environment_abstract_Response.data.id}}
 
@@ -35,6 +36,13 @@ assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data != EMPTY"
+
+cleanup:
+  - delete_job_findby_projectid_abstract
+  - delete_environment_abstract
+  - delete_project_GitHub_abstract
+  - delete_GitHubacc_abstract
+
 
 severity: Major
 
