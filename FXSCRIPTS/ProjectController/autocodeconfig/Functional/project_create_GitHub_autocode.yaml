@@ -39,8 +39,8 @@ assertions:
   - "@Response.data.openAPISpec == @Request.openAPISpec"
 
 cleanup:
-  - delete_GitHubacc_abstract
   - delete_project_GitHub_abstract
+  - delete_GitHubacc_abstract
 
 severity: Major
 

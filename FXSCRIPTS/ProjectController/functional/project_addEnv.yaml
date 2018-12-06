@@ -30,7 +30,7 @@ assertions:
 
 cleanup:
    - job_findby_projectid_abstract
-   - delete_job__findby_projectid_abstract
+   - delete_job_findby_projectid_abstract
    - delete_environment
    - delete_project_GitHub_abstract
    - delete_GitHubacc_abstract

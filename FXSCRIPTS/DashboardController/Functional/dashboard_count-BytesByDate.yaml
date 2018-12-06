@@ -5,7 +5,7 @@ authors:
 
 type: SUITE
 
-endpoint: /dashboard/count-BytesByDate?fromDate=2018-11-01&toDate=2018-11-20
+endpoint: /dashboard/count-bytes-between?fromDate=2018-11-01&toDate=2018-11-20
 
 method: GET
 

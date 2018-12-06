@@ -18,7 +18,7 @@ auth: Default
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
-  - "@Response.data.name == @Request.name"
+  - "@Response.data.project.name == @Request.project.name"
 
 cleanup:
   - delete_project_GitHub_abstract

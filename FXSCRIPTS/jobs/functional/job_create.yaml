@@ -9,8 +9,8 @@ init:
   - create_GitHubacc_abstract
   - create_project_GitHub_abstract
   - create_environment_abstract
-  - job_findby_projectid
-  
+  - job_findby_projectid_abstract
+
 endpoint: /jobs
 
 method: POST
