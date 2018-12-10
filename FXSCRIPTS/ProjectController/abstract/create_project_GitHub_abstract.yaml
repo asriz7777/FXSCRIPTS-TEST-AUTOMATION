@@ -19,8 +19,8 @@ testCases:
       body: '{
         "name": "GitHub-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
-        "account": "{{@create_GitHubacc_abstract_Response.data}}",
-        "genPolicy": "Create"
+        "account": "{{@create_GitHubacc_abstract_Response.data}}"
+
       }'
 assertions:
   - "@StatusCode == 200"
