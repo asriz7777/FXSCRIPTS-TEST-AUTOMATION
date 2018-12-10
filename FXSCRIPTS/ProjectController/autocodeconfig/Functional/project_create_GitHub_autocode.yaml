@@ -32,15 +32,15 @@ testCases:
 
 assertions:
   - "@StatusCode == 200"
-  - "@Response.errors == true"
+  - "@Response.errors == false"
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.openAPISpec == @Request.openAPISpec"
   - "@Response.data.generators == @Request.generators"
 
 
-cleanup:
-  - delete_project_GitHub_abstract
-  - delete_GitHubacc_abstract
+#cleanup:
+#  - delete_project_GitHub_abstract
+#  - delete_GitHubacc_abstract
 
 severity: Major
 
