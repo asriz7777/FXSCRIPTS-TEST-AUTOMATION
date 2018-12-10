@@ -20,15 +20,13 @@ testCases:
         "name": "GitHub-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
         "account": "{{@create_GitHubacc_abstract_Response.data}}"
-
-      }'
+}'
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
   - "@Response.data.url == @Request.url"
   - "@Response.data.account.id == @Request.account.id"
-  - "@Response.data.genPolicy == @Request.genPolicy"
 
 severity: Major
 
