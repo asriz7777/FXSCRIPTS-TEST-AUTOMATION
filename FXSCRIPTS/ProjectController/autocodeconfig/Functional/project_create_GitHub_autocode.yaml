@@ -27,7 +27,7 @@ testCases:
         },
        "project": "{{@create_project_GitHub_abstract_Response.data}}",
        "openAPISpec": "http://13.56.210.25/v2/api-docs",
-       "generators": "{{@project_getCodeConfigSave_abstract_Response.data.generators}}"
+       "generators": {{@project_getCodeConfigSave_abstract_Response.data.generators}}
     }'
 
 assertions:
