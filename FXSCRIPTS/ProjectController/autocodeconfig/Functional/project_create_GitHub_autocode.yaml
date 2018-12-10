@@ -26,7 +26,6 @@ testCases:
         "id": "{{@create_project_GitHub_abstract_Response.data.org.id}}"
         },
        "project": "{{@create_project_GitHub_abstract_Response.data}}",
-       "genPolicy": "Create",
        "openAPISpec": "http://13.56.210.25/v2/api-docs",
        "generators": {{@project_getCodeConfigSave_abstract_Response.data.generators}}
     }'
@@ -36,7 +35,6 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.openAPISpec == @Request.openAPISpec"
-  - "@Response.data.generators == @Request.generators"
 
 #cleanup:
 #  - delete_project_GitHub_abstract
