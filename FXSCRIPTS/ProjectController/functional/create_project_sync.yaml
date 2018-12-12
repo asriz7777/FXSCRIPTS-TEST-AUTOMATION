@@ -37,9 +37,9 @@ assertions:
   - "@Response.data.name == @Request.name"
   - "@Response.data.project.Id == @Request.project.Id"
 
-cleanup:
-  - delete_project
-  - delete_GitHubacc_abstract
+#cleanup:
+#  - delete_project
+  #- delete_GitHubacc_abstract
 
 severity: Major
 
