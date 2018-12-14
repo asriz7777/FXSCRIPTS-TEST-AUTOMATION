@@ -24,8 +24,8 @@ testCases:
   - id: 1
     body: '{
     "recreate":true,
-    "deleteAll": false
-    "projectId": "{{@create_project_GitHub_abstract_Response.data.Id}}"}
+    "deleteAll": false,
+    "projectId": "{{@create_project_GitHub_abstract_Response.data.Id}}"
 }'
 assertions:
   - "@StatusCode == 200"
