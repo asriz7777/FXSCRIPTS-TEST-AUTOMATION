@@ -23,7 +23,7 @@ headers:
 testCases:
   - id: 1
     body: '{
-    "recreate":true,
+    "recreate": true,
     "deleteAll": false,
     "projectId": "{{@create_project_GitHub_abstract_Response.data.Id}}"
 }'
