@@ -3,7 +3,7 @@ name: project_create_GitHub_autoCode_simpleGet_abstract
 authors:
   - Asiya Shaji
 
-type: SUITE
+type: ABSTRACT
 
 endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/new/autocodeconfig
 
