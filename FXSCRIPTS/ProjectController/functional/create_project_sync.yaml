@@ -11,7 +11,7 @@ init:
  - project_getCodeConfigSave_abstract
  - project_create_GitHub_autoCode_simpleGet_abstract
 
-endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/project-sync
+endpoint: /projects/{{@project_create_GitHub_autoCode_simpleGet_abstract_Response.data.id}}/project-sync
 
 method: POST
 
@@ -25,7 +25,7 @@ testCases:
     body: '{
     "recreate": true,
     "deleteAll": false,
-    "projectId": "{{@create_project_GitHub_abstract_Response.data.Id}}"
+    "projectId": "{{@project_create_GitHub_autoCode_simpleGet_abstract_Response.data.Id}}"
 }'
 assertions:
   - "@StatusCode == 200"
