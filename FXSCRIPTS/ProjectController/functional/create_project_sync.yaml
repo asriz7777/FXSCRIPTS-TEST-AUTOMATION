@@ -11,7 +11,7 @@ init:
  - project_getCodeConfigSave_abstract
  - project_create_GitHub_autoCode_simpleGet_abstract
 
-endpoint: /projects/{{@project_create_GitHub_autoCode_simpleGet_abstract_Response.data.id}}/project-sync
+endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/project-sync
 
 method: POST
 
@@ -25,16 +25,16 @@ testCases:
     body: '{
     "recreate": true,
     "deleteAll": false,
-    "projectId": "{{@project_create_GitHub_autoCode_simpleGet_abstract_Response.data.Id}}"
+    "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}"
 }'
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
-  - "@Response.data.project.Id == @Request.project.Id"
+  - "@Response.data.project.id == @Request.project.id"
 
 cleanup:
- - delete_project
+ - delete_project_GitHub_abstract
  - delete_GitHubacc_abstract
 
 severity: Major
