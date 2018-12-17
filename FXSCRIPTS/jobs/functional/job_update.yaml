@@ -26,15 +26,7 @@ testCases:
         "name": "UAT1",
         "regions": "US_WEST",
         "categories": "",
-        "notifications": [
-    {
-      "account": "Default_Email"",
-      "channel": "string",
-      "id": "string",
-      "name": "FXLabs/Dev-Email-Notification",
-      "to": "asiya@fxlabs.io"
-    }
-  ],
+  
       }'
 
 assertions:
