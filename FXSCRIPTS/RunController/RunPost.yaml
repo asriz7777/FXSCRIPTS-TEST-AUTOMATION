@@ -24,7 +24,7 @@ testCases:
     body: '{
         "id": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
         "environment": "{{@create_environment_abstract_Response.data}}",
-        "regions": "FXLabs/NORTH_EUROPE"
+        "regions": "FXLabs/US_WEST"
  }'
 
 assertions:
