@@ -20,12 +20,21 @@ auth: Default
 testCases:
     - id: 1
       body: '{
-        "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}",
-        "environmentId": "{{@create_environment_abstract_Response.data.id}}",
+        "project": "{{@create_project_GitHub_abstract_Response.data}}",
+        "environment": "{{@create_environment_abstract_Response.data}}",
         "jobId": "{{@job_findby_projectid_abstract_Response.data.id}}",
         "name": "UAT1",
-        "regions": "US_WEST_2",
-        "categories": ""
+        "regions": "US_WEST",
+        "categories": "",
+        "notifications": [
+    {
+      "account": "Default_Email"",
+      "channel": "string",
+      "id": "string",
+      "name": "FXLabs/Dev-Email-Notification",
+      "to": "asiya@fxlabs.io"
+    }
+  ],
       }'
 
 assertions:

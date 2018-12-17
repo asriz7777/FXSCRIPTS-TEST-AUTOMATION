@@ -32,7 +32,7 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.environment.id == @Request.environment.id"
   - "@Response.data.project.id == @Request.project.id"
-
+  - "@Response.data.job.id == @Request.job.id"
 #cleanup:
  #- delete_run
  #- delete_job_findby_projectid_abstract
