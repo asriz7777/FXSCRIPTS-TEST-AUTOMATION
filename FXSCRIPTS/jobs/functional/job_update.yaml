@@ -25,8 +25,7 @@ testCases:
         "jobId": "{{@job_findby_projectid_abstract_Response.data.id}}",
         "name": "UAT1",
         "regions": "US_WEST",
-        "categories": "",
-  
+        "categories": ""
       }'
 
 assertions:
