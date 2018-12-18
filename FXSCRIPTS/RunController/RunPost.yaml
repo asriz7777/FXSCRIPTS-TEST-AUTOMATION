@@ -13,7 +13,7 @@ init:
   - create_environment_abstract
   - job_findby_projectid_abstract
 
-endpoint: /runs/job/{{@job_findby_projectid_abstract_Response.data.id}}
+endpoint: /runs/job/{{@job_findby_projectid_abstract_Response.data[0].id}}
 
 method: POST
 
@@ -22,8 +22,8 @@ auth: Default
 testCases:
   - id: 1
     body: '{
-        "id": "{{@job_findby_projectid_abstract_Response.data.id}}",
-        "environment": "{{@create_environment_abstract_Response.data}}",
+        "id": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
+        "environment": {{@create_environment_abstract_Response.data}},
         "regions": "FXLabs/US_WEST"
  }'
 

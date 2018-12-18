@@ -43,3 +43,7 @@ category: Functional
 
 tags:
 - V2
+
+policies:
+  repeatOnFailure: 5
+  repeatDelay: 3000
