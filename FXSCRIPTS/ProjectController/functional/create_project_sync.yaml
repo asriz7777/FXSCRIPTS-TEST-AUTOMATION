@@ -30,7 +30,6 @@ testCases:
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
-  - "@Response.data.name == @Request.name"
   - "@Response.data.project.id == @Request.project.id"
 
 cleanup:
@@ -45,5 +44,4 @@ tags:
 - V2
 
 policies:
-  repeatOnFailure: 5
   repeatDelay: 3000

@@ -10,6 +10,7 @@ init:
    - create_project_GitHub_abstract
    - create_environment_abstract
    - create_job_abstract
+   - job_findby_projectid_abstract
 
 endpoint: /jobs/{{@create_job_abstract_Response.data.id}}
 
@@ -22,10 +23,12 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data != EMPTY"
 
-#cleanup:
-#  - delete_environment_abstract
-  #- delete_project_GitHub_abstract
-#  - delete_GitHubacc_abstract
+cleanup:
+ - delete_job_abstract
+ - delete_job_findby_projectid_abstract
+ - delete_environment_abstract
+ - delete_project_GitHub_abstract
+ - delete_GitHubacc_abstract
 
 severity: Major
 

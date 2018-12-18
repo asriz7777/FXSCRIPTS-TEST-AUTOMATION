@@ -22,7 +22,7 @@ auth: Default
 testCases:
   - id: 1
     body: '{
-        "jobId": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
+        "jobid": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
         "regions": "FXLabs/US_WEST"
  }'
 

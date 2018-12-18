@@ -27,7 +27,6 @@ cleanup:
   - delete_project_GitHub_abstract
   - delete_GitHubacc_abstract
 
-
 severity: Major
 
 category: Functional
