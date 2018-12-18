@@ -19,21 +19,16 @@ testCases:
   - id: 1
     body: '{
         "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}",
-        name: account_findAll
-        authors:
-          - Asiya Shaji
-        type: SUITE
-        endpoint: /accounts?page=0&pageSize=20
-        method: GET
-        auth: Default
-        assertions:
-          - "@StatusCode == 200"
-          - "@Response.errors == false"
-          - "@Response.data != EMPTY"
-        severity: Major
-        category: Functional
-        tags:
-         - V2
+        assertions: ["@StatusCode == 200", "@Response.errors == false"],
+        auth: "Default",
+        category: "Functional",
+        endpoint: "/accounts",
+        headers: ["Content-Type: application/json"],
+        inactive: false,
+        method: "GET",
+        name: "getaccount",
+        tags: ["V2"],
+        type: "SUITE"
  }'
 
 assertions:

@@ -33,8 +33,8 @@ assertions:
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.job.id == @Request.job.id"
 
-#cleanup:
-  - delete_run_abstract
+cleanup:
+ - delete_run_abstract
  - delete_job_findby_projectid_abstract
  - delete_environment_abstract
  - delete_project_GitHub_abstract

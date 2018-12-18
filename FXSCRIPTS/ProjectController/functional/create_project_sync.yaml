@@ -28,8 +28,6 @@ testCases:
     "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}"
 }'
 
-- delay: '00:15:00'
-
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
