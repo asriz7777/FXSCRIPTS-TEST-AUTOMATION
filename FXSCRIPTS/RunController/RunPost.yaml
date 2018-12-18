@@ -13,7 +13,7 @@ init:
   - create_environment_abstract
   - job_findby_projectid_abstract
 
-endpoint: /runs/job/{{@job_findby_projectid_abstract_Response.data[0].id}}
+endpoint: /runs/job/{{@job_findby_projectid_abstract_Response.data.id}}
 
 method: POST
 
@@ -22,7 +22,7 @@ auth: Default
 testCases:
   - id: 1
     body: '{
-        "id": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
+        "id": "{{@job_findby_projectid_abstract_Response.data.id}}",
         "environment": "{{@create_environment_abstract_Response.data}}",
         "regions": "FXLabs/US_WEST"
  }'
@@ -33,12 +33,13 @@ assertions:
   - "@Response.data.environment.id == @Request.environment.id"
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.job.id == @Request.job.id"
-#cleanup:
- #- delete_run
- #- delete_job_findby_projectid_abstract
- #- delete_environment_abstract
- #- delete_project_GitHub_abstract
- #- delete_GitHubacc_abstract
+
+  cleanup:
+ - delete_run
+ - delete_job_findby_projectid_abstract
+ - delete_environment_abstract
+ - delete_project_GitHub_abstract
+ - delete_GitHubacc_abstract
 
 severity: Major
 
