@@ -34,7 +34,7 @@ assertions:
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.job.id == @Request.job.id"
 
-  cleanup:
+cleanup:
  - delete_run_abstract
  - delete_job_findby_projectid_abstract
  - delete_environment_abstract
