@@ -27,6 +27,10 @@ testCases:
     "deleteAll": false,
     "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}"
 }'
+
+- delay:
+   minutes: 15
+
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
