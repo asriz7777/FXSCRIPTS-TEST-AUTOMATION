@@ -23,7 +23,6 @@ testCases:
   - id: 1
     body: '{
         "jobId": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
-        "environment": "{{@create_environment_abstract_Response.data}}",
         "regions": "FXLabs/US_WEST"
  }'
 
