@@ -19,8 +19,8 @@ headers:
 - 'Content-Type: application/json'
 
 testCases:
-  - id: 1
-    body: '{
+ - id: 1
+   body: '{
         "org": {
         "id": "{{@create_project_abstract_Response.data.org.id}}"
         },
@@ -39,7 +39,7 @@ testCases:
 "tags":["OWASP - OTG-AUTHN-002","FX Top 10 - API Vulnerability"],"assertions":["@StatusCode == 401 OR @StatusCode == 403"],
 "assertionsText":"@StatusCode == 401 OR @StatusCode == 403","severity":"Major","inactive":false,
  "sequenceOrder":30,"newlyAdded":false,"authors":"","fixHours":"2"},{"type":"auth_invalid","displayHeaderDescription":"Identifies endpoints that skips token validation.
- Note: Environment should have an Auth with name 'Invalid_Auth'.","displayHeaderLabel":"Authentication Invalid",
+ Note: Environment should have an Auth with name 'Invalid_Auth'."displayHeaderLabel":"Authentication Invalid",
  "assertionDescription":"Successful test suite response code should be 401 and 403. Unsuccessful test suite response code is
  200.","tags":["OWASP A2","OWASP A5","OWASP A6","OWASP A7","[PIC DSS 3.0] 6.5.8","[PIC DSS 3.0] 6.5.10","OTG-AUTHN-004",
  "FX Top 10 - API Vulnerability"],"assertions":["@StatusCode == 401 OR @StatusCode == 403"],
