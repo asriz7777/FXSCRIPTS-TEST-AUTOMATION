@@ -7,7 +7,7 @@ type: SUITE
 
 init:
  - create_project_abstract
- - project_getCodeConfigSave_abstract
+ - project_getCodeConfigSave_abstract_2
 
 endpoint: /projects/{{@create_project_abstract_Response.data.id}}/new/autocodeconfig
 
@@ -38,7 +38,7 @@ assertions:
   - "@Response.data.genPolicy == @Request.genPolicy"
 
 cleanup:
-- delete_project
+- delete_project_autoCode_abstract
 
 severity: Major
 

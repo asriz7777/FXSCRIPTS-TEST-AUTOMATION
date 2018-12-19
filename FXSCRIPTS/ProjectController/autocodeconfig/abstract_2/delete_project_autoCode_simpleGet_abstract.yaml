@@ -1,11 +1,11 @@
-name: delete_project_autoCode_abstract
+name: delete_project_autoCode_simpleGet_abstract
 
 authors:
   - Asiya
 
 type: ABSTRACT
 
-endpoint: /projects/{{@create_project_autoCode_abstract_Response.data.id}}
+endpoint: /projects/{{@create_project_autoCode_simpleGet_abstract_Response.data.id}}
 
 method: DELETE
 
