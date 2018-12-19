@@ -23,8 +23,8 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data != EMPTY"
 
-#cleanup:
-# - delete_project_GitHub_abstract
+cleanup:
+- delete_project_abstract
  #- delete_GitHubacc_abstract
 
 severity: Major

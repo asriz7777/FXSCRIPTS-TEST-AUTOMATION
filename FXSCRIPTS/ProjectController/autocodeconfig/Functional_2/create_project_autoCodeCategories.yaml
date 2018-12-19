@@ -57,7 +57,6 @@ assertions:
 
 cleanup:
 - delete_project_abstract
-- delete_project
 
 severity: Major
 
