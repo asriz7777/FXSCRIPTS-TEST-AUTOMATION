@@ -1,4 +1,4 @@
-name: create_project_autoCode
+name: create_project_autoCode_SLA
 
 authors:
   - Asiya Shaji
@@ -7,7 +7,7 @@ type: SUITE
 
 init:
  - create_project_abstract
- - project_getCodeConfigSave_abstract
+ - project_getCodeConfigSave_abstract_2
 
 endpoint: /projects/{{@create_project_abstract_Response.data.id}}/new/autocodeconfig
 
@@ -27,8 +27,11 @@ testCases:
        "project": "{{@create_project_abstract_Response.data}}",
        "genPolicy": "Create",
        "openAPISpec": "http://13.56.210.25/v2/api-docs",
-       "generators": {{@project_getCodeConfigSave_abstract_2_Response.data.generators}}
-    }'
+       "generators": [{"type":"sla","displayHeaderDescription":"Continuously measure and track performance SLAs (in milliseconds).",
+"displayHeaderLabel":"Performance SLA","assertionDescription":null,"assertions":["@StatusCode == 200 AND @ResponseTime < 500"],
+"assertionsText":"@StatusCode == 200 AND @ResponseTime < 500","severity":"Major","inactive":false,"sequenceOrder":20,"newlyAdded":false,
+"authors":"","fixHours":"1"}]
+ }'
 
 assertions:
   - "@StatusCode == 200"
@@ -38,7 +41,7 @@ assertions:
   - "@Response.data.genPolicy == @Request.genPolicy"
 
 cleanup:
-- delete_project
+- delete_project_autoCode_abstract
 
 severity: Major
 
