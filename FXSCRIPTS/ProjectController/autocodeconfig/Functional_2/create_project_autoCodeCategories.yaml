@@ -1,4 +1,5 @@
 name: create_project_autoCodeCategories
+
 authors:
   - Asiya Shaji
 
@@ -55,7 +56,8 @@ assertions:
   - "@Response.data.genPolicy == @Request.genPolicy"
 
 cleanup:
-- delete_project_autoCodeCategories_abstract
+- delete_project_abstract
+- delete_project
 
 severity: Major
 

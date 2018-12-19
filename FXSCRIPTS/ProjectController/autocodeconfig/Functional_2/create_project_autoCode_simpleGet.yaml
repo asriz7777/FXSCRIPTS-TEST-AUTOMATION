@@ -43,6 +43,7 @@ assertions:
 
 cleanup:
 - delete_project_autoCode_simpleGet_abstract
+- delete_project
 
 severity: Major
 

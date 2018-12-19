@@ -1,0 +1,44 @@
+name: create_project_autoCode_SLA_abstract
+
+authors:
+  - Asiya Shaji
+
+type: ABSTRACT
+
+endpoint: /projects/{{@create_project_abstract_Response.data.id}}/new/autocodeconfig
+
+method: POST
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  - id: 1
+    body: '{
+        "org": {
+        "id": "{{@create_project_abstract_Response.data.org.id}}"
+        },
+       "project": "{{@create_project_abstract_Response.data}}",
+       "genPolicy": "Create",
+       "openAPISpec": "http://13.56.210.25/v2/api-docs",
+       "generators": [{"type":"sla","displayHeaderDescription":"Continuously measure and track performance SLAs (in milliseconds).",
+"displayHeaderLabel":"Performance SLA","assertionDescription":null,"assertions":["@StatusCode == 200 AND @ResponseTime < 500"],
+"assertionsText":"@StatusCode == 200 AND @ResponseTime < 500","severity":"Major","inactive":false,"sequenceOrder":20,"newlyAdded":false,
+"authors":"","fixHours":"1"}]
+ }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.project.id == @Request.project.id"
+  - "@Response.data.openAPISpec == @Request.openAPISpec"
+  - "@Response.data.genPolicy == @Request.genPolicy"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2

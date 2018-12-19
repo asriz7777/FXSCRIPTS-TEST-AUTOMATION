@@ -42,6 +42,7 @@ assertions:
 
 cleanup:
 - delete_project_autoCode_SLA_abstract
+- delete_project
 
 severity: Major
 
