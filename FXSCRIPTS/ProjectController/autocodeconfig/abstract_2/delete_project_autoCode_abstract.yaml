@@ -5,7 +5,7 @@ authors:
 
 type: ABSTRACT
 
-endpoint: /projects/{{@create_project_autoCode_abstract_Response.data.id}}
+endpoint: /projects/{{@create_project_abstract_Response.data.id}}
 
 method: DELETE
 

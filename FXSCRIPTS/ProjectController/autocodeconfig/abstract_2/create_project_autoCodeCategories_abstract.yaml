@@ -1,12 +1,9 @@
-name: create_project_autoCodeCategories
+name: create_project_autoCodeCategories_abstract
+
 authors:
   - Asiya Shaji
 
 type: SUITE
-
-init:
- - create_project_abstract
- - project_getCodeConfigSave_abstract_2
 
 endpoint: /projects/{{@create_project_abstract_Response.data.id}}/new/autocodeconfig
 
@@ -53,9 +50,6 @@ assertions:
   - "@Response.data.project.id == @Request.project.id"
   - "@Response.data.openAPISpec == @Request.openAPISpec"
   - "@Response.data.genPolicy == @Request.genPolicy"
-
-cleanup:
-- delete_project_autoCodeCategories_abstract
 
 severity: Major
 

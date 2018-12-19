@@ -42,7 +42,7 @@ assertions:
   - "@Response.data.genPolicy == @Request.genPolicy"
 
 cleanup:
-- delete_project_autoCode_abstract
+- delete_project_autoCode_simpleGet_abstract
 
 severity: Major
 
