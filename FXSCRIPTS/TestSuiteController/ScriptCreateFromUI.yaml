@@ -18,7 +18,7 @@ auth: Default
 testCases:
   - id: 1
     body: '{
-        "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}",
+        "project": "{{@create_project_GitHub_abstract_Response.data}}",
         "assertions": ["@StatusCode == 200", "@Response.errors == false"],
         "auth": "Default",
         "authors": ["Asiya Shaji"],
