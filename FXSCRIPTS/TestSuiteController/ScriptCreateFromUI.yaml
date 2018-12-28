@@ -19,16 +19,24 @@ testCases:
   - id: 1
     body: '{
         "projectId": "{{@create_project_GitHub_abstract_Response.data.id}}",
-        assertions: ["@StatusCode == 200", "@Response.errors == false"],
-        auth: "Default",
-        category: "Functional",
-        endpoint: "/accounts",
-        headers: ["Content-Type: application/json"],
-        inactive: false,
-        method: "GET",
-        name: "getaccount",
-        tags: ["V2"],
-        type: "SUITE"
+        "assertions": ["@StatusCode == 200", "@Response.errors == false"],
+        "auth": "Default",
+        "authors": ["Asiya Shaji"],
+        "category": "Functional",
+        "endpoint": "/accounts",
+        "headers": ["Content-Type: application/json"],
+        "inactive": false,
+        "method": "POST",
+        "name": "createAccount",
+        "testCases": [{
+            "name": "{{@Random | 6}}",
+            "accountType": "GitHub",
+            "accessKey": "asriz7777",
+            "secretKey": "testing"
+          }],
+        "tags": ["V2"],
+        "type": "SUITE",
+        "severity": "Major"
  }'
 
 assertions:
