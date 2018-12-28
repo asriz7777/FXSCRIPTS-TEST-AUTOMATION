@@ -23,22 +23,15 @@ testCases:
         "auth": "Default",
         "authors": ["Asiya Shaji"],
         "category": "Functional",
-        "endpoint": "/accounts",
+        "endpoint": " /accounts",
         "headers": ["Content-Type: application/json"],
         "inactive": false,
-        "method": "POST",
-        "name": "createAccount",
-        "testCases": [{
-            "name": "{{@Random | 6}}",
-            "accountType": "GitHub",
-            "accessKey": "asriz7777",
-            "secretKey": "testing"
-          }],
+        "method": "GET",
+        "name": "getAccount",
         "tags": ["V2"],
         "type": "SUITE",
         "severity": "Major"
  }'
-
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
