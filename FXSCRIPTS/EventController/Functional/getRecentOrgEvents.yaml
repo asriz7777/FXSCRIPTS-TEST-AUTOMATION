@@ -5,10 +5,6 @@ authors:
 
 type: SUITE
 
-init:
-  - create_GitHubacc_abstract
-  - create_project_GitHub_abstract
-
 endpoint: /events/orgevents?page=0&pageSize=20
 
 method: GET
