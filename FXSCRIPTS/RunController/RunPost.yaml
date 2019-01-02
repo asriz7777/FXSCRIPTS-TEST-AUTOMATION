@@ -22,7 +22,10 @@ auth: Default
 testCases:
   - id: 1
     body: '{
-        "jobId": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
+        "job":
+          {
+          "id": "{{@job_findby_projectid_abstract_Response.data[0].id}}",
+        }
         "regions": "FXLabs/US_WEST_1"
  }'
 
@@ -31,7 +34,7 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.environment.id == @Request.environment.id"
   - "@Response.data.project.id == @Request.project.id"
-  - "@Response.data.job.id == @Request.jobId"
+  - "@Response.data.job.id == @Request.job.id"
 
 cleanup:
  - delete_run
