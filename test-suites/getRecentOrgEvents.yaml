@@ -5,8 +5,7 @@ authors:
 
 type: SUITE
 
-
-endpoint: /events/orgevents?page=0&pageSize=20
+endpoint: /events/orgevents?page=1&pageSize=20
 
 method: GET
 
