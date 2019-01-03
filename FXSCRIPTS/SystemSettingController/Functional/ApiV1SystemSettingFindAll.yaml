@@ -1,0 +1,23 @@
+name: ApiV1SystemSettingFindAll
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /system-settings?page=0&pageSize=100
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
