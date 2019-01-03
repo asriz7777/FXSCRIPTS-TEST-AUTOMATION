@@ -68,7 +68,7 @@ testCases:
   - id: 22
     body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@Faker.company.industry}}"}'
 
-    assertions:
+assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
 
