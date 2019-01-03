@@ -1,0 +1,23 @@
+name: getRecentOrgEventsPage1
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /events/orgevents?page=1&pageSize=20
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+  - V2
