@@ -50,7 +50,6 @@ testCases:
     body: '{"name": "fn1 ln", "email": "test@fxlabs.io", "password": "1234567", "company": "123"}'
 
 assertions:
-  - "@StatusCode == 200"
   - "@Response.errors == true"
 
 severity: Major
