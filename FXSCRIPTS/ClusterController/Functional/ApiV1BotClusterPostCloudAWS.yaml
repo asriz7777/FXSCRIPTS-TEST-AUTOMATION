@@ -36,6 +36,7 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
   - "@Response.data.cloudType == @Request.cloudType"
+  
 severity: Major
 
 category: Functional
