@@ -1,0 +1,83 @@
+name: ApiV1UsersPersonalSignUpValidAddedFakerStrings
+
+authors:
+  - Intesar Mohammed
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint:  /users/personal-sign-up
+
+method: POST
+
+auth: Default
+
+testCases:
+  # valid email
+  - id: 1
+    body: '{"name": "{{@USName | firstname}}", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 2
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 5}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 3
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 12}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 4
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 24}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  # valid name
+  - id: 5
+    body: '{"name": "", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 6
+    body: '{"name": "1", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 7
+    body: '{"name": "3", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 8
+    body: '{"name": "first name", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 9
+    body: '{"name": "first1 name2", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 10
+    body: '{"name": "Jr. first name", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 11
+    body: '{"name": "{{@RandomAlphanumeric | 24}}", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  # valid Password
+  - id: 12
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 9}}"}'
+  - id: 13
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "{{@RandomAlphanumeric | 24}}", "company": "{{@RandomAlphanumeric | 9}}"}'
+  # valid company
+  - id: 14
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 12}}"}'
+  - id: 15
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 24}}"}'
+
+  # Name from Faker
+  - id: 16
+    body: '{"name": "{{@Faker.name.fullName}}", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 12}}"}'
+  - id: 17
+    body: '{"name": "{{@Faker.name.firstName}} {{@Faker.name.lastName}}", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 12}}"}'
+  - id: 18
+    body: '{"name": "{{@Faker.name.nameWithMiddle}}", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@RandomAlphanumeric | 24}}"}'
+
+  # email from Faker
+  - id: 19
+    body: '{"name": "fn1 ln", "email": "{{@Faker.internet.emailAddress}}", "password": "12345678", "company": "{{@RandomAlphanumeric | 12}}"}'
+  - id: 20
+    body: '{"name": "fn1 ln", "email": "{{@Faker.internet.safeEmailAddress}}", "password": "12345678", "company": "{{@RandomAlphanumeric | 24}}"}'
+
+  # company from Faker
+  - id: 21
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@Faker.company.name}}"}'
+  - id: 22
+    body: '{"name": "fn1 ln", "email": "{{@RandomAlphanumeric | 6}}@fxlabs.io", "password": "12345678", "company": "{{@Faker.company.industry}}"}'
+
+    assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
+
+policies:
+  logger: DEBUG
