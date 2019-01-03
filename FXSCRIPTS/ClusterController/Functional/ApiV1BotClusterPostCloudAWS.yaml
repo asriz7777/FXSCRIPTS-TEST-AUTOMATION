@@ -23,17 +23,19 @@ testCases:
           "org": {
             "id": "{{@create_AWSacc_abstract_Response.data.org.id}}"
           },
-          "manual": "false",
-          "name": "FXLABS-TOLICHOWKI",
-          "region": "us-east-2",
-          "min": "1"
-     }'
+        "cloudType": "AWS",
+        "driver": "MANUAL",
+        "min": "1",
+        "name": "FXLABS-TOLICHOWKI",
+        "region": "us-east-2",
+       "visibility": "PRIVATE"
+}'
 
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
-
+  - "@Response.data.cloudType == @Request.cloudType"
 severity: Major
 
 category: Functional
