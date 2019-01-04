@@ -5,7 +5,7 @@ authors:
 
 type: ABSTRACT
 
-endpoint: /bot-clusters/{{@ApiV1BotClusterDeletetCloudGCPAbstract_Response.data.id}}
+endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudGCPAbstract_Response.data.id}}
 
 method: DELETE
 
