@@ -24,7 +24,7 @@ testCases:
          "cloudType": "AWS",
          "driver": "MANUAL",
          "min": "1",
-        "name": "FXLABS-TOLICHOWKI",
+        "name": "{{@Random | 6}}",
         "region": "us-east-2",
         "visibility": "PRIVATE"
 }'
