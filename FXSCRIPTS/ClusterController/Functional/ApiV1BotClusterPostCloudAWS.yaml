@@ -24,17 +24,19 @@ testCases:
           "org": {
             "id": "{{@create_AWSacc_abstract_Response.data.org.id}}"
           },
-        "manual": "false",
+         "cloudType": "AWS",
+         "driver": "MANUAL",
+         "min": "1",
         "name": "FXLABS-TOLICHOWKI",
         "region": "us-east-2",
-        "min": "1"
+        "visibility": "PRIVATE"
 }'
 
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
-  #- "@Response.data.cloudType == @Request.cloudType"
+  - "@Response.data.cloudType == @Request.cloudType"
 
 severity: Major
 
