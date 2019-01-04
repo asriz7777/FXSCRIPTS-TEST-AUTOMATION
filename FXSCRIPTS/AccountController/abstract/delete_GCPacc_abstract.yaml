@@ -5,7 +5,7 @@ authors:
 
 type: ABSTRACT
 
-endpoint: /accounts/{{@delete_GCPacc_abstract_Response.data.id}}
+endpoint: /accounts/{{@create_GCPacc_abstract_Response.data.id}}
 
 method: DELETE
 
