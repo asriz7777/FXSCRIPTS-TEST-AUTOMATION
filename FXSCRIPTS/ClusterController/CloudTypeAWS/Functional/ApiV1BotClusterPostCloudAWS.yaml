@@ -40,6 +40,7 @@ assertions:
 
 cleanup:
   - delete_AWSacc_abstract
+  - ApiV1BotClusterDeleteCloudAWSAbstract
 
 severity: Major
 
