@@ -1,0 +1,23 @@
+name: ApiV1BotClusterFindAll
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+endpoint: /bot-clusters/entitled?page=0&pageSize=100
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2

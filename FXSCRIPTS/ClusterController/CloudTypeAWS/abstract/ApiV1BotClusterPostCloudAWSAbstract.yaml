@@ -1,0 +1,46 @@
+name: ApiV1BotClusterPostCloudAWSAbstract
+
+authors:
+  - Asiya Shaji
+
+type: ABSTRACT
+
+endpoint: /bot-clusters
+
+method: POST
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  - id: 1
+    body: '{
+          "account": "{{@create_AWSacc_abstract_Response.data}}",
+          "org": {
+            "id": "{{@create_AWSacc_abstract_Response.data.org.id}}"
+          },
+         "cloudType": "AWS",
+         "driver": "MANUAL",
+         "min": "1",
+        "name": "FXLABS-TOLICHOWKI",
+        "region": "us-east-2",
+        "visibility": "PRIVATE"
+}'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.cloudType == @Request.cloudType"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
+
+policies:
+  logger: DEBUG

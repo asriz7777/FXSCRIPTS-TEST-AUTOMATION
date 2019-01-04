@@ -38,6 +38,9 @@ assertions:
   - "@Response.data.name == @Request.name"
   - "@Response.data.cloudType == @Request.cloudType"
 
+cleanup:
+  - delete_AWSacc_abstract
+
 severity: Major
 
 category: Functional

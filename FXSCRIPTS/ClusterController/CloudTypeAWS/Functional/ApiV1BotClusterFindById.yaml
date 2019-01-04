@@ -1,0 +1,30 @@
+name: ApiV1BotClusterFindById
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_AWSacc_abstract
+  - ApiV1BotClusterPostCloudAWSAbstract
+
+endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudAWSAbstract_Response.data.id}}
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+cleanup:
+  - delete_AWSacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
