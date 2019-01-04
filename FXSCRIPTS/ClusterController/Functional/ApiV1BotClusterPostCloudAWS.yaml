@@ -7,7 +7,7 @@ type: SUITE
 
 init:
   - create_AWSacc_abstract
-  
+
 endpoint: /bot-clusters
 
 method: POST
@@ -20,22 +20,21 @@ headers:
 testCases:
   - id: 1
     body: '{
+          "account": "{{@create_AWSacc_abstract_Response.data}}",
           "org": {
             "id": "{{@create_AWSacc_abstract_Response.data.org.id}}"
           },
-        "cloudType": "AWS",
-        "driver": "MANUAL",
-        "min": "1",
+        "manual": "false",
         "name": "FXLABS-TOLICHOWKI",
         "region": "us-east-2",
-       "visibility": "PRIVATE"
+        "min": "1"
 }'
 
 assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
-  - "@Response.data.cloudType == @Request.cloudType"
+  #- "@Response.data.cloudType == @Request.cloudType"
 
 severity: Major
 
