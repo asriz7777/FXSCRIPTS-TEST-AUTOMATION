@@ -3,7 +3,7 @@ name: ApiV1BotClusterPostCloudGCP
 authors:
   - Asiya Shaji
 
-type: ABSTRACT
+type: SUITE
 
 init:
   - create_GCPacc_abstract

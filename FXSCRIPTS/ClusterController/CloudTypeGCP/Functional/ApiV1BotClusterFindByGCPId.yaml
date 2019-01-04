@@ -7,7 +7,7 @@ type: SUITE
 
 init:
   - create_GCPacc_abstract
-  - ApiV1ApiV1BotClusterPostCloudGCPAbstract
+  - ApiV1BotClusterPostCloudGCPAbstract
 
 endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudGCPAbstract_Response.data.id}}
 
