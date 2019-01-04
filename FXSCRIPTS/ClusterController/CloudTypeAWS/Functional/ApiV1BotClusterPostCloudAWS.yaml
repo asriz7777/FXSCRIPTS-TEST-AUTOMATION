@@ -39,9 +39,9 @@ assertions:
   - "@Response.data.cloudType == @Request.cloudType"
 
 cleanup:
-  - ApiV1BotClusterDeleteCloudAWSAbstract
+  - ApiV1BotClusterDelete
   - delete_AWSacc_abstract
-  
+
 severity: Major
 
 category: Functional

@@ -23,7 +23,6 @@ assertions:
   - "@Response.errors == false"
 
 cleanup:
-- ApiV1BotClusterDelete
 - delete_AWSacc_abstract
 
 severity: Major
