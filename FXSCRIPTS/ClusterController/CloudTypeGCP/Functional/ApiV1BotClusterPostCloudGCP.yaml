@@ -1,0 +1,53 @@
+name: ApiV1BotClusterPostCloudGCPAbstract
+
+authors:
+  - Asiya Shaji
+
+type: ABSTRACT
+
+init:
+  - create_GCPacc_abstract
+
+endpoint: /bot-clusters
+
+method: POST
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  - id: 1
+    body: '{
+          "account": "{{@create_GCPacc_abstract_Response.data}}",
+          "org": {
+            "id": "{{@create_GCPacc_abstract_Response.data.org.id}}"
+          },
+         "cloudType": "GCP",
+         "driver": "MANUAL",
+         "min": "1",
+        "name": "{{@Random | 3}}",
+        "region": "asia-east1-c",
+        "visibility": "PRIVATE"
+}'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.name == @Request.name"
+  - "@Response.data.cloudType == @Request.cloudType"
+
+cleanup:
+  - ApiV1BotClusterDelete
+  - delete_GCPacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
+
+policies:
+  logger: DEBUG

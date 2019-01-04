@@ -1,4 +1,4 @@
-name: ApiV1BotClusterPing
+name: ApiV1BotClusterFindByAWSId
 
 authors:
   - Asiya Shaji
@@ -9,7 +9,7 @@ init:
   - create_AWSacc_abstract
   - ApiV1BotClusterPostCloudAWSAbstract
 
-endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudAWSAbstract_Response.data.id}}/ping
+endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudAWSAbstract_Response.data.id}}
 
 method: GET
 

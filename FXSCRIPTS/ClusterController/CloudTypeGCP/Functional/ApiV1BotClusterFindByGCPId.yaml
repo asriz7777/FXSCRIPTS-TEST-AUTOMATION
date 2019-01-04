@@ -1,0 +1,31 @@
+name: ApiV1BotClusterFindByGCPId
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_GCPacc_abstract
+  - ApiV1ApiV1BotClusterPostCloudGCPAbstract
+
+endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudGCPAbstract_Response.data.id}}
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+cleanup:
+  - ApiV1BotClusterDeleteCloudGCPAbstract
+  - delete_GCPacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
