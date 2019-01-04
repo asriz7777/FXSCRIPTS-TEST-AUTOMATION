@@ -45,7 +45,6 @@ cleanup:
   - ApiV1BotClusterDeleteCloudAWSAbstract
   - delete_AWSacc_abstract
 
-
 severity: Major
 
 category: Functional
