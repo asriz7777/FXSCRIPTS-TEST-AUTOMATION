@@ -24,12 +24,11 @@ testCases:
           "org": {
             "id": "{{@create_GCPacc_abstract_Response.data.org.id}}"
           },
-         "cloudType": "GCP",
-         "driver": "MANUAL",
-         "min": "1",
-        "name": "{{@Random | 3}}",
-        "region": "asia-east1-c",
-        "visibility": "PRIVATE"
+           "cloudType": "GCP",
+           "manual": "false",
+           "name": "{{@Random | 3}}",
+           "region": "asia-east1-c",
+           "min": "1"
 }'
 
 assertions:

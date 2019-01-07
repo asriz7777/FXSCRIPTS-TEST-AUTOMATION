@@ -21,12 +21,11 @@ testCases:
           "org": {
             "id": "{{@create_AWSacc_abstract_Response.data.org.id}}"
           },
-         "cloudType": "AWS",
-         "driver": "MANUAL",
-         "min": "1",
-        "name": "{{@Random | 3}}",
-        "region": "us-east-2",
-        "visibility": "PRIVATE"
+            "cloudType": "AWS",
+            "manual": "false",
+            "name": "{{@Random | 3}}",
+            "region": "us-east-2",
+            "min": "1"
 }'
 
 assertions:

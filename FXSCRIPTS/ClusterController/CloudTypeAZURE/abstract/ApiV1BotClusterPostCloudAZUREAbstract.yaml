@@ -1,12 +1,9 @@
-name: ApiV1BotClusterPostCloudAWS
+name: ApiV1BotClusterPostCloudAZUREAbstract
 
 authors:
   - Asiya Shaji
 
-type: SUITE
-
-init:
-  - create_AWSacc_abstract
+type: ABSTRACT
 
 endpoint: /bot-clusters
 
@@ -20,15 +17,15 @@ headers:
 testCases:
   - id: 1
     body: '{
-          "account": "{{@create_AWSacc_abstract_Response.data}}",
+          "account": "{{@create_AZUREacc_abstract_Response.data}}",
           "org": {
-            "id": "{{@create_AWSacc_abstract_Response.data.org.id}}"
+            "id": "{{@create_AZUREacc_abstract_Response.data.org.id}}"
           },
-           "cloudType": "AWS",
-           "manual": "false",
-           "name": "{{@Random | 3}}",
-           "region": "us-east-2",
-           "min": "1"
+            "cloudType": "AZURE",
+            "manual": "false",
+            "name": "{{@Random | 3}}",
+            "region": "East US",
+            "min": "1"
 }'
 
 assertions:
@@ -36,10 +33,6 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
   - "@Response.data.cloudType == @Request.cloudType"
-
-cleanup:
-  - ApiV1BotClusterDelete
-  - delete_AWSacc_abstract
 
 severity: Major
 

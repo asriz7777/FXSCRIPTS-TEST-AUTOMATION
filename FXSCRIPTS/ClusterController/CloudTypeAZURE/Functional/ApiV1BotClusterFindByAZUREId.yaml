@@ -1,0 +1,31 @@
+name: ApiV1BotClusterFindByAZUREId
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  - create_AZUREacc_abstract
+  - ApiV1BotClusterPostCloudAZUREAbstract
+
+endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudAZUREAbstract_Response.data.id}}
+
+method: GET
+
+auth: Default
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+
+cleanup:
+  - ApiV1BotClusterDeleteCloudAZUREAbstract
+  - delete_AZUREacc_abstract
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2

@@ -1,4 +1,4 @@
-name: ApiV1BotClusterPostCloudAZURE
+name: ApiV1BotClusterUpdateCloudAZURE
 
 authors:
   - Asiya Shaji
@@ -7,10 +7,12 @@ type: SUITE
 
 init:
   - create_AZUREacc_abstract
+  - ApiV1BotClusterPostCloudAZUREAbstract
 
-endpoint: /bot-clusters
 
-method: POST
+endpoint: /bot-clusters/{{@ApiV1BotClusterPostCloudAZUREAbstract_Response.data.id}}
+
+method: PUT
 
 auth: Default
 
@@ -20,15 +22,16 @@ headers:
 testCases:
   - id: 1
     body: '{
+          "id": "{{@ApiV1BotClusterPostCloudAZUREAbstract_Response.data.id}}",
           "account": "{{@create_AZUREacc_abstract_Response.data}}",
           "org": {
             "id": "{{@create_AZUREacc_abstract_Response.data.org.id}}"
           },
-         "cloudType": "AZURE",
-         "manual": "false",
-         "name": "{{@Random | 3}}",
-         "region": "East US",
-         "min": "1"
+          "cloudType": "AZURE",
+          "manual": "false",
+          "name": "{{@Random | 6}}",
+          "region": "East US",
+          "min": "2"
 }'
 
 assertions:
@@ -38,7 +41,7 @@ assertions:
   - "@Response.data.cloudType == @Request.cloudType"
 
 cleanup:
-  - ApiV1BotClusterDelete
+  - ApiV1BotClusterDeleteCloudAZUREAbstract
   - delete_AZUREacc_abstract
 
 severity: Major
