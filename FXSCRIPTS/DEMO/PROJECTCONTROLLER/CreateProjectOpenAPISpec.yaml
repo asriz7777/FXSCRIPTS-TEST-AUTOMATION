@@ -25,6 +25,9 @@ assertions:
   - "@Response.errors == false"
   - "@Response.data.name == @Request.name"
 
+cleanup:
+ - DeleteProject
+
 severity: Major
 
 category: Functional
