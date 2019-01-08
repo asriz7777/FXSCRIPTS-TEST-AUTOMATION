@@ -1,4 +1,4 @@
-name: project_getCodeConfigSave
+name: ProjectGetCodeConfigSave
 
 authors:
   - Asiya Shaji
@@ -6,10 +6,9 @@ authors:
 type: SUITE
 
 init:
- - create_GitHubacc_abstract
- - create_project_GitHub_abstract
+ - CreateProjectopenAPISpecAbstract
 
-endpoint: /projects/{{@create_project_GitHub_abstract_Response.data.id}}/autocodeconfig
+endpoint: /projects/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}/autocodeconfig
 
 method: GET
 
@@ -25,8 +24,7 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
- - delete_project_GitHub_abstract
- - delete_GitHubacc_abstract
+  - DeleteProjectopenAPISpecAbstract
 
 severity: Major
 

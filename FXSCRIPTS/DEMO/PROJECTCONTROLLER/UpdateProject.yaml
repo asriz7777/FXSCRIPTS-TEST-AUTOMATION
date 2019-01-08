@@ -9,7 +9,7 @@ init:
  - CreateGitHubaccAbstract
  - CreateProjectopenAPISpecAbstract
 
-endpoint: /projects/{{@CreateProjectopenAPISpecAbstract}}
+endpoint: /projects
 
 method: PUT
 
