@@ -8,7 +8,7 @@ type: SUITE
 init:
    - CreateProjectopenAPISpecAbstract
 
-endpoint: /envs/project-id//{{@CreateProjectopenAPISpecAbstract_Response.data.id}}
+endpoint: /envs/project-id/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}
 
 method: GET
 
