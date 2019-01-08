@@ -1,0 +1,46 @@
+name: UpdateProject
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+ - CreateGitHubaccAbstract
+ - CreateProjectopenAPISpecAbstract
+
+endpoint: /projects
+
+method: PUT
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+testCases:
+  - id: 1
+    body: '{
+        "id": "{{@CreateProjectopenAPISpecAbstract_Response.data.id}}",
+        "org": {
+          "id": "{{@CreateProjectopenAPISpecAbstract_Response.data.org.id}}"
+        },
+        "url": "https://github.com/asriz7777/FX_Testing-Automation",
+        "account": "{{@CreateGitHubaccAbstract_Response.data}}"
+     }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data != EMPTY"
+
+cleanup:
+  - DeleteProjectopenAPISpecAbstract
+  - DeleteGitHubaccAbstract
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
