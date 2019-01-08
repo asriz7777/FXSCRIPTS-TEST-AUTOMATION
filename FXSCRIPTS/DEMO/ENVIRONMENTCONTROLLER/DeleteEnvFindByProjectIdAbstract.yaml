@@ -1,0 +1,26 @@
+name: DeleteEnvFindByProjectIdAbstract
+
+authors:
+  - Asiya Shaji
+
+type: ABSTRACT
+
+endpoint: /envs/{{@EnvFindByProjectIdAbstract_Response.data[0].id}}
+
+method: DELETE
+
+auth: Default
+
+headers:
+- 'Content-Type: application/json'
+
+assertions:
+    - "@StatusCode == 200"
+    - "@Response.errors == false"
+
+severity: Major
+
+category: Functional
+
+tags:
+- V2
