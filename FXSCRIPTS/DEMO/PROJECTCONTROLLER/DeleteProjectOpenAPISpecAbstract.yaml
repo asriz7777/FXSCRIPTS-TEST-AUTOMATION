@@ -1,11 +1,11 @@
-name: DeleteProjectOpenAPISpecAbstract
+name: DeleteProjectopenAPISpecAbstract
 
 authors:
   - Asiya Shaji
 
 type: ABSTRACT
 
-endpoint: /projects/{{@CreateProjectOpenAPISpecAbstract_Response.data.id}}
+endpoint: /projects/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}
 
 method: DELETE
 

@@ -7,9 +7,9 @@ type: SUITE
 
 init:
  - CreateGitHubaccAbstract
- - CreateProjectOpenAPISpecAbstract
+ - CreateProjectopenAPISpecAbstract
 
-endpoint: /projects/{{@CreateProjectOpenAPISpecAbstract}}
+endpoint: /projects/{{@CreateProjectopenAPISpecAbstract}}
 
 method: PUT
 
@@ -21,9 +21,9 @@ headers:
 testCases:
   - id: 1
     body: '{
-        "id": "{{@CreateProjectOpenAPISpecAbstract_Response.data.id}}",
+        "id": "{{@CreateProjectopenAPISpecAbstract_Response.data.id}}",
         "org": {
-          "id": "{{@CreateProjectOpenAPISpecAbstract_Response.data.org.id}}"
+          "id": "{{@CreateProjectopenAPISpecAbstract_Response.data.org.id}}"
         },
         "name": "proj-{{@Random | 6}}",
         "url": "https://github.com/asriz7777/FX_Testing-Automation",
@@ -36,7 +36,7 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
-  - DeleteProjectOpenAPISpecAbstract
+  - DeleteProjectopenAPISpecAbstract
   - DeleteGitHubaccAbstract
 
 severity: Major
