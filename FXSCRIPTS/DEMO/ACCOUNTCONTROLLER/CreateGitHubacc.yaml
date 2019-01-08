@@ -1,4 +1,4 @@
-name: create_GitHubacc
+name: CreateGitHubacc
 
 authors:
   - Asiya Shaji
@@ -53,7 +53,7 @@ assertions:
   - "@Response.data.secretKey == EMPTY"
 
 cleanup:
-  - delete_account
+  - DemoDeleteAccount
 
 severity: Major
 

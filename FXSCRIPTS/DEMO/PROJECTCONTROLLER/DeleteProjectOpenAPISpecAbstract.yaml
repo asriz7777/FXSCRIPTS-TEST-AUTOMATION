@@ -1,12 +1,11 @@
-#validates delete with parent id
-name: delete_account
+name: DeleteProjectOpenAPISpecAbstract
 
 authors:
-  - Asiya
+  - Asiya Shaji
 
 type: ABSTRACT
 
-endpoint: /accounts/{{@Response.data.id}}
+endpoint: /projects/{{@CreateProjectOpenAPISpecAbstract_Response.data.id}}
 
 method: DELETE
 
