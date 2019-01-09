@@ -1,4 +1,4 @@
-name: JobFindByProjectId
+name: GetEnvFindByProjectId
 
 authors:
   - Asiya Shaji
@@ -7,9 +7,8 @@ type: SUITE
 
 init:
    - CreateProjectopenAPISpecAbstract
-   - EnvFindByProjectIdAbstract
 
-endpoint: /jobs/project-id/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}
+endpoint: /envs/project-id/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}
 
 method: GET
 
@@ -21,8 +20,6 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
-    - DeleteJobFindByProjectIdAbstract
-    - DeleteEnvFindByProjectIdAbstract
     - DeleteProjectopenAPISpecAbstract
 
 severity: Major

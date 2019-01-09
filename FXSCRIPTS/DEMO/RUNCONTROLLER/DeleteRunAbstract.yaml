@@ -1,11 +1,11 @@
-name: DeleteJobFindByProjectIdAbstract
+name: DeleteRunAbstract
 
 authors:
-  - Asiya Shaji
+  - Asiya
 
 type: ABSTRACT
 
-endpoint: /jobs/{{@GetJobFindByProjectIdAbstract_Response.data[0].id}}
+endpoint: /runs/{{@Response.data.id}}
 
 method: DELETE
 

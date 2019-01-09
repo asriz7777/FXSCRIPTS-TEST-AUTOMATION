@@ -1,0 +1,50 @@
+name: RunPost
+
+authors:
+  - Asiya Shaji
+
+type: SUITE
+
+init:
+  init:
+   - CreateProjectopenAPISpecAbstract
+   - ProjectGetCodeConfigSaveAbstract
+   - CreateProjectAutoCodeCategoriesAbstract
+   - GetEnvFindByProjectIdAbstract
+   - GetJobFindByProjectIdAbstract
+
+endpoint: /runs/job/{{@GetJobFindByProjectIdAbstract_Response.data[0].id}}
+
+method: POST
+
+auth: Default
+
+testCases:
+  - id: 1
+    body: '{
+        "jobId": "{{@GetJobFindByProjectIdAbstract_Response.data[0].id}}",
+        "regions": "FXLabs/US_WEST_1"
+ }'
+
+assertions:
+  - "@StatusCode == 200"
+  - "@Response.errors == false"
+  - "@Response.data.environment.id == @Request.environment.id"
+  - "@Response.data.project.id == @Request.project.id"
+  - "@Response.data.job.id == @Request.jobId"
+
+cleanup:
+ - DeleteRunAbstract
+ - DeleteJobFindByProjectIdAbstract
+ - DeleteEnvFindByProjectIdAbstract
+ - DeleteProjectopenAPISpecAbstract
+
+severity: Major
+
+category: Functional
+
+tags:
+    - V2
+
+policies:
+    logger: DEBUG
