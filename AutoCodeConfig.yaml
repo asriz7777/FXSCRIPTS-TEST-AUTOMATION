@@ -1,6 +1,6 @@
 ---
 genPolicy: "None"
-openAPISpec: "none"
+openAPISpec: null
 generators:
 - type: "no_params"
   assertions:
@@ -9,7 +9,7 @@ generators:
   - " OWASP - OTG-CONFIG-006"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -19,7 +19,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -31,7 +31,7 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -58,7 +58,7 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -85,7 +85,7 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -108,7 +108,7 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: null
     value: null
@@ -130,15 +130,15 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: "ROLE_ADMIN,ROLE_PM,ROLE_USER"
-    value: "None"
+    value: "AutoMap"
     methods: null
     denyRoles: null
     allowRoles: null
     pathPatterns: null
-    resourceSamples: "Get:/api/v1/orgs/:Allowed[ROLE_ADMIN]\nPost:/api/v1/accounts/:Allowed[ROLE_ADMIN,ROLE_PM]"
+    resourceSamples: "GET:/api/v1/orgs/login-status:Allowed[ROLE_ADMIN,ROLE_PM]\n"
     queryParams: null
     bodyProperties: null
   authors: ""
@@ -147,16 +147,90 @@ generators:
   assertions:
   - "Create:@StatusCode == 200 OR @StatusCode == 201"
   - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  - "#Disallowed:@StatusCode == 200 AND @Response.errors == true"
   tags:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
-  matches: []
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "abact2"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "FX Top 10 - API Vulnerability"
+  severity: "Major"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "abact3"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Disallowed:@StatusCode == 401 OR @StatusCode == 403"
+  tags:
+  - "FX Top 10 - API Vulnerability"
+  severity: "Major"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "UserB,UserC"
+    allowRoles: "UserA"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
+  authors: ""
+  abacResources: null
+- type: "abacpositive"
+  assertions:
+  - "Create:@StatusCode == 200 OR @StatusCode == 201"
+  - "Allowed:@StatusCode == 200 OR @StatusCode == 201"
+  tags:
+  - "FX Top 10 - API Vulnerability"
+  severity: "Major"
+  database: null
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: "ORG_A_ADMIN,UserA2"
+    allowRoles: "UserA1"
+    pathPatterns: null
+    resourceSamples: null
+    queryParams: null
+    bodyProperties: null
   authors: ""
   abacResources: null
 - type: "DDOS"
   assertions:
+  - "@StatusCode != 200"
   - "@StatusCode != 401"
   - "@StatusCode != 404"
   tags:
@@ -164,14 +238,14 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches:
   - name: "pageSize, page_size, maxResults, max_results"
     value: null
     methods: null
     denyRoles: null
     allowRoles: null
-    pathPatterns: null
+    pathPatterns: "GET:/api/v1/accounts/search"
     resourceSamples: null
     queryParams: null
     bodyProperties: null
@@ -191,7 +265,7 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -208,8 +282,69 @@ generators:
   database:
     name: "MySQL"
     version: "5.7"
-  inactive: true
-  matches: []
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+- type: "sql_injection2_timebound"
+  assertions:
+  - "@ResponseTime < 7000 OR @ResponseTime > 10000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP A1"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "FX Top 10 - API Vulnerability"
+  severity: "Major"
+  database:
+    name: "MySQL"
+    version: "5.7"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
+  authors: ""
+  abacResources: null
+- type: "no_sql_injection_timebound"
+  assertions:
+  - "@ResponseTime < 7000 OR @ResponseTime > 10000"
+  - "@StatusCode != 404"
+  tags:
+  - "OWASP A1"
+  - "[PCI DSS 3.0] 6.5.1"
+  - "OWASP - OTG-INPVAL-005"
+  - "FX Top 10 - API Vulnerability"
+  severity: "Major"
+  database:
+    name: "MongoDB"
+    version: "4.0"
+  inactive: false
+  matches:
+  - name: null
+    value: null
+    methods: null
+    denyRoles: null
+    allowRoles: null
+    pathPatterns: null
+    resourceSamples: "User-Create"
+    queryParams: null
+    bodyProperties: "id,name"
   authors: ""
   abacResources: null
 - type: "log_Forging"
@@ -222,7 +357,7 @@ generators:
   - "OWASP - Log Injection"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -234,7 +369,7 @@ generators:
   - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -248,7 +383,7 @@ generators:
   - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -262,7 +397,7 @@ generators:
   - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -275,7 +410,7 @@ generators:
   tags: null
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
@@ -287,7 +422,7 @@ generators:
   - "OWASP - OTG-BUSLOGIC-001"
   severity: "Major"
   database: null
-  inactive: true
+  inactive: false
   matches: []
   authors: ""
   abacResources: null
