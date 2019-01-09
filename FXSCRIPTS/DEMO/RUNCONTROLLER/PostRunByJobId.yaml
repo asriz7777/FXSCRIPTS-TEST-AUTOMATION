@@ -1,4 +1,4 @@
-name: RunPost
+name: PostRunById
 
 authors:
   - Asiya Shaji
@@ -10,7 +10,7 @@ init:
    - CreateProjectopenAPISpecAbstract
    - ProjectGetCodeConfigSaveAbstract
    - CreateProjectAutoCodeCategoriesAbstract
-   - ProjectSync
+   - ProjectSyncAbstract
    - GetEnvFindByProjectIdAbstract
    - GetJobFindByProjectIdAbstract
 
