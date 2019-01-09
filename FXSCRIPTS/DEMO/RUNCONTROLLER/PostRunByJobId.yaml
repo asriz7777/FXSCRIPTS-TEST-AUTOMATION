@@ -6,7 +6,6 @@ authors:
 type: SUITE
 
 init:
-  init:
    - CreateProjectopenAPISpecAbstract
    - ProjectGetCodeConfigSaveAbstract
    - CreateProjectAutoCodeCategoriesAbstract
