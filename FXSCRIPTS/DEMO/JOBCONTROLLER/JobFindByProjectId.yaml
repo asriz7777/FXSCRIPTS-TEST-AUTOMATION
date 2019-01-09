@@ -7,6 +7,7 @@ type: SUITE
 
 init:
    - CreateProjectopenAPISpecAbstract
+   - EnvFindByProjectIdAbstract
 
 endpoint: /jobs/project-id/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}
 
