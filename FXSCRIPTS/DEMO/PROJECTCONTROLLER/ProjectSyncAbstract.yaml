@@ -3,12 +3,7 @@ name: ProjectSync
 authors:
   - Asiya Shaji
 
-type: SUITE
-
-init:
- - CreateProjectopenAPISpecAbstract
- - ProjectGetCodeConfigSaveAbstract
- - CreateProjectAutoCodeCategoriesAbstract
+type: ABSTRACT
 
 endpoint: /projects/{{@CreateProjectopenAPISpecAbstract_Response.data.id}}/project-sync
 
@@ -31,9 +26,6 @@ assertions:
   - "@StatusCode == 200"
   - "@Response.errors == false"
   - "@Response.data.project.id == @Request.project.id"
-
-cleanup:
- - DeleteProjectopenAPISpecAbstract
 
 severity: Major
 

@@ -10,6 +10,7 @@ init:
    - CreateProjectopenAPISpecAbstract
    - ProjectGetCodeConfigSaveAbstract
    - CreateProjectAutoCodeCategoriesAbstract
+   - ProjectSync
    - GetEnvFindByProjectIdAbstract
    - GetJobFindByProjectIdAbstract
 
