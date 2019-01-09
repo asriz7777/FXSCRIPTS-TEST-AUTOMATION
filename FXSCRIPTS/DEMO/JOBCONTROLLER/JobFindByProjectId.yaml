@@ -21,6 +21,8 @@ assertions:
   - "@Response.data != EMPTY"
 
 cleanup:
+    - DeleteJobFindByProjectIdAbstract
+    - DeleteEnvFindByProjectIdAbstract
     - DeleteProjectopenAPISpecAbstract
 
 severity: Major
