@@ -41,4 +41,5 @@ tags:
     - V2
 
 policies:
-    logger: DEBUG
+  repeatOnFailure: 10
+  repeatDelay: 5000
