@@ -28,6 +28,7 @@ testCases:
         "endpoint" : "/api/v1/accounts",
         "method" : "GET",
         "name" : "GetAccount",
+        "description": "string",
         "publishToMarketplace" : "false",
         "severity" : "Major",
         "tagsText" : "v2",
