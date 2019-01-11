@@ -130,7 +130,7 @@ generators:
   - "FX Top 10 - API Vulnerability"
   severity: "Major"
   database: null
-  inactive: false
+  inactive: true
   matches:
   - name: "ROLE_ADMIN,ROLE_PM,ROLE_USER"
     value: "None"
