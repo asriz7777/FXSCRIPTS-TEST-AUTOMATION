@@ -15,7 +15,7 @@ testCases:
   - id: 1
     body: '{
         "jobId": "{{@GetJobFindByProjectIdAbstract_Response.data[0].id}}",
-        "regions": "FXLabs/US_WEST_1"
+        "regions": "FXLabs/US_WEST"
  }'
 
 assertions:
